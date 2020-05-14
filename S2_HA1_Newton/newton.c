@@ -72,3 +72,11 @@ int main()
 
 
 }
+
+/*
+JW-2020-06-12:
+--------------
+> nice implementation! (8/10) 
+> missing extra lib (*.c + *.h) incl. includegard includeguards: -1 Pkt
+> missing abort criteria max iterations: -1Pkt
+*/
