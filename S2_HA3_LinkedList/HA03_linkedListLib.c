@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "HA03_linkedListLib.h"
-//Sonja Mühleisen 
+//Sonja Mï¿½hleisen 
 //Cedrik Holzwarth
 //22-05-2020
 //File Name:    HA03_main.c
@@ -111,17 +111,18 @@ void saveList(listElement *start){
     {
         printf("Could not save file\n");
 
-        //return 0 oder ´-1
+        //return 0 oder ï¿½-1
         //return auf exit fcn
+       
     }
     else {
-        int temp = 66;
+        int temp = 66; 
         temp = getLenOfList(start);
         fprintf(fPtr,"%d\n", temp );  //Length of Linked list: 
        
         if (start->nextElem == NULL) printf("\n>> list is empty\n\n");
         else {
-            int i = 1;
+            int i = 1; // JW 2020-05-22: this is unused.
             listElement* currElem = start;
             //fprintf(fPtr,"\n>> current list:\n\n");
             do {
@@ -145,7 +146,7 @@ void loadList(listElement *start){
 	char filename[50];
 	printf("\nloading data...\n\n");
 	printf("availible data: \n----------------\n");
-	system("dir /b *.txt"); // dir /b *.txt for windows | print availible *.txt files in current location
+	system("ls /b *.txt"); // dir /b *.txt for windows | print availible *.txt files in current location
 	printf("\nfilname without extension: ");
 	scanf("%s",filename);
 	strcat(filename, ".txt"); // adding .txt to file name
@@ -162,7 +163,7 @@ void loadList(listElement *start){
         fscanf(fPtr, "%d", &temp);
         printf("Values in file:%d\n", temp);
        // temp = 2;
-        for (int i = 1; i <= temp; i++) {//Loop noch drüber legen
+        for (int i = 1; i <= temp; i++) {//Loop noch drï¿½ber legen
             listElement* new;
             new = (listElement*)malloc(sizeof(listElement));
             if (new == NULL) {
@@ -230,7 +231,12 @@ void stringToLower(char *string) {
     printf("\n>>stringToLower fcn is tbd.\n\n");
 
 }
-
+/*
+JW-2020-05-22:
+--------------
+> well done (10/10) 
+> how much time did you spend on this exercise? I think it was a litte to easy wasnt it? ;-)
+*/
 
 
 
