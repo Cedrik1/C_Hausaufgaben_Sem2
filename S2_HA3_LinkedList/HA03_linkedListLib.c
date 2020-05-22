@@ -2,6 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include "HA03_linkedListLib.h"
+//Sonja Mühleisen 
+//Cedrik Holzwarth
+//22-05-2020
+//File Name:    HA03_main.c
+//              HA03_linkedListLib.c
+//              HA03_linkedListLib.h
 
 void addListElem(listElement *start){
     
@@ -13,6 +19,7 @@ void addListElem(listElement *start){
         }
 
     listElement * currElem = start;
+
     while (currElem->nextElem != NULL) currElem = currElem->nextElem;// get last elem in list
     currElem->nextElem = new; // add new to the end of list
     new->nextElem = NULL;
@@ -83,6 +90,9 @@ void saveList(listElement *start){
 
         1.) Check if fopen() was successful.
             Otherwise exit function with return and inform the user about the canceled task.
+           
+
+
 
 
         2.) Use fprintf() to write length of list as first value to the text file.
@@ -96,25 +106,87 @@ void saveList(listElement *start){
 
         4.) The user needs to be informed about the successful saving process.
             Don't forget to close the file stream!
-
-
     */
-	
+    if (fPtr == NULL)
+    {
+        printf("Could not save file\n");
+
+        //return 0 oder ´-1
+        //return auf exit fcn
+    }
+    else {
+        int temp = 66;
+        temp = getLenOfList(start);
+        fprintf(fPtr,"%d\n", temp );  //Length of Linked list: 
+       
+        if (start->nextElem == NULL) printf("\n>> list is empty\n\n");
+        else {
+            int i = 1;
+            listElement* currElem = start;
+            //fprintf(fPtr,"\n>> current list:\n\n");
+            do {
+                currElem = currElem->nextElem;
+                //fprintf(fPtr,"%d.)", i); i++;
+                fprintf(fPtr,"%s\n", currElem->lastName); //last Name: 
+                fprintf(fPtr,"%s\n", currElem->firstName);//\tfirst Name:
+                fprintf(fPtr,"%d\n", currElem->age);        //\tage : 
+            } while (currElem->nextElem != NULL);
+            fprintf(fPtr, "\n"); printf("Saving successfull!\n\n");
+        }
+    }
+
+
+    fclose(fPtr);
 }
 
 void loadList(listElement *start){
 	
+    int temp = 0;
 	char filename[50];
 	printf("\nloading data...\n\n");
 	printf("availible data: \n----------------\n");
-	system("ls *.txt"); // dir /b *.txt for windows | print availible *.txt files in current location
+	system("dir /b *.txt"); // dir /b *.txt for windows | print availible *.txt files in current location
 	printf("\nfilname without extension: ");
 	scanf("%s",filename);
 	strcat(filename, ".txt"); // adding .txt to file name
 	
 	FILE * fPtr;
 	fPtr = fopen(filename, "r");
-	
+
+    if (fPtr == NULL)
+    {
+        printf("Could not load file\n");
+    }
+    else {
+
+        fscanf(fPtr, "%d", &temp);
+        printf("Values in file:%d\n", temp);
+       // temp = 2;
+        for (int i = 1; i <= temp; i++) {//Loop noch drüber legen
+            listElement* new;
+            new = (listElement*)malloc(sizeof(listElement));
+            if (new == NULL) {
+                printf("can't reserve storage.\n");
+                return;
+            }
+
+            listElement* currElem = start;
+
+            while (currElem->nextElem != NULL) currElem = currElem->nextElem;// get last elem in list
+            currElem->nextElem = new; // add new to the end of list
+            new->nextElem = NULL;
+
+
+            fscanf(fPtr, "%s", new->lastName); //new->lastName
+            fscanf(fPtr, "%s", new->firstName);
+            fscanf(fPtr, "%d", &(new->age));
+            printf("\t(%d)\n\tLast name: %s\n\tFirst name: %s\n\tAge:%d\n\n",i, new->lastName, new->firstName, new->age);
+            
+        }
+       
+    }
+    
+
     /* YOUR CODE HERE */
     /* ---------------- 
 

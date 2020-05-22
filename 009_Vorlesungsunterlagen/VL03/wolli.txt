@@ -1,0 +1,8 @@
+Length of Linked list:1
+
+>> current list:
+
+0.)	last Name: wolli
+	first Name: wollman
+	age : 314
+

@@ -1,0 +1,14 @@
+Length of Linked list:3
+
+>> current list:
+
+0.)	last Name: wolli
+	first Name: wollman
+	age : 314
+1.)	last Name: torkel
+	first Name: juergen
+	age : 350
+2.)	last Name: brillen
+	first Name: olli
+	age : 12
+

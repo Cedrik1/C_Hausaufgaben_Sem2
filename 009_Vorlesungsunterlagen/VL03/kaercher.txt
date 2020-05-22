@@ -1,0 +1,14 @@
+Length of Linked list:3
+
+>> current list:
+
+1.)	last Name: Stark
+	first Name: Yannik
+	age : 3000
+2.)	last Name: Bartsch
+	first Name: Anja
+	age : 1500
+3.)	last Name: Klehr
+	first Name: Merit
+	age : 9000
+

@@ -1,0 +1,1 @@
+Length of Linked list:12

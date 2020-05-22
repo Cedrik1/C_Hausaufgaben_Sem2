@@ -29,6 +29,14 @@
 *   >> Practice of simple linked list
 *
 **/
+//Sonja Mühleisen 
+//Cedrik Holzwarth
+//22-05-2020
+//File Name:    HA03_main.c
+//              HA03_linkedListLib.c
+//              HA03_linkedListLib.h
+
+
 int main(){
 
     listElement *start;
@@ -46,12 +54,12 @@ int main(){
         printf("2... add element\n");
         printf("3... delete element\n");
         printf("4... delete list\n");
-		printf("5... save list\n");
-		printf("6... load list\n");
+		printf("5... save list\n"); //machen sachen
+		printf("6... load list\n"); //Machen
 		printf("7... sort list\n");
         printf("0... quit\n");
         scanf("%d",&FLAGG);
-        system("clear"); // cls for windows
+        system("cls"); // cls for windows
 
 
         switch (FLAGG){

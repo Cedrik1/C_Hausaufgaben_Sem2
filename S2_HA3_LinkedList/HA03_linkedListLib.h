@@ -1,5 +1,11 @@
 #ifndef HA03_LINKEDLISTLIB_H_
 #define HA03_LINKEDLISTLIB_H_
+//Sonja Mühleisen 
+//Cedrik Holzwarth
+//22-05-2020
+//File Name:    HA03_main.c
+//              HA03_linkedListLib.c
+//              HA03_linkedListLib.h
 /** 
     \STRUCT: listElement
  

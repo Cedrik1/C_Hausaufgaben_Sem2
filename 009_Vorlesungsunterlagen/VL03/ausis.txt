@@ -1,0 +1,11 @@
+2 Length of Linked list:
+
+>> current list:
+
+1.)	last Name: krimmer
+	first Name: nic
+	age : 50
+2.)	last Name: wissner
+	first Name: micheal
+	age : 38
+
