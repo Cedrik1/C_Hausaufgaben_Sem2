@@ -52,15 +52,54 @@ void printList(listElement *start){
 }
 
 void delListElem(listElement *start){
+    int indextodel = -1;
+    
 
-    printf("\n>> delListElem fcn is tbd.\n\n");
+    listElement* currElem = start;
+    listElement* delElem = start; // zeigt irgendow hin 
+
+    if (start->nextElem == 0) printf("list is empty");
+
+    else {
+        printList(start);
+        printf("Which List Elment do you want to delete\nInsert Index Number\n");
+        scanf("%d", &indextodel);
+
+        if (getLenOfList(start) - 1 < indextodel)
+        {
+            printf(" Can't delete Elemnt with Index %d; list ends with index %d", indextodel, getLenOfList(start) - 1);
+        }
+        for (int i = 0; i < indextodel; i++) {
+
+            currElem = currElem->nextElem;
+            
+        }
+        delElem = currElem->nextElem;
+        currElem->nextElem = (currElem->nextElem)->nextElem; //alt. currElm->nextElem = delElem->nextElem
+
+        free(delElem);
+
+    }
 
 }
 
 void delList(listElement *start){
 
-    printf("\n>> getLenOfList fcn is tbd.\n\n");
+    listElement* currElem = start;
+    listElement* delElem = start;
+    
+    if (start->nextElem == 0) printf("list is empty");
+    else {
+        while (currElem->nextElem != NULL) {
 
+            delElem = currElem->nextElem;
+            currElem = (currElem->nextElem)->nextElem;
+            free(delElem);
+
+
+        }
+
+    }
 }
 
 int getLenOfList(listElement *start){ // we use this for save list fcn
@@ -216,7 +255,17 @@ void loadList(listElement *start){
 
 void exitFcn(listElement *start){
 
-    printf("\n>> exitFcn fcn is tbd.\n\n");
+    
+
+    int saveFlagg = 0;
+
+    printf("do you want to save the current list?\n");
+    printf("[1] ... yes\n");
+    printf("[0] ... no\n");
+    scanf("%d", &saveFlagg);
+
+    if (saveFlagg == 1) saveList(start); // in save funktion übergeben 
+    system("cls");
 
 }
 
@@ -229,6 +278,16 @@ void sortList(listElement *start){
 void stringToLower(char *string) {
 	
     printf("\n>>stringToLower fcn is tbd.\n\n");
+
+        int i;
+        int len = strlen(string); // is part of string.h
+        for (i = 0; i < len; i++) {
+            if (string[i] >= 'A' && string[i] <= 'Z'||string[i] == 'Ö'||string[i] == 'Ä') {
+                string[i] += 32;
+            }
+        }
+        printf("\n\n");
+    
 
 }
 /*
